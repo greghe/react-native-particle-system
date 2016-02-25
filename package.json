@@ -1,0 +1,32 @@
+{
+  "name": "react-native-particle-system",
+  "version": "0.8.0",
+  "description": "A Particle System for React Native iOS apps",
+  "main": "ParticleCell.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greghe/react-native-particle-system.git"
+  },
+  "keywords": [
+    "Particle",
+    "system",
+    "emitter",
+    "opengl",
+    "CAEmitterLayer",
+    "Animation",
+    "Games"
+  ],
+  "files": [
+    "ParticleCell.js",
+    "ParticleView.js"
+  ],
+  "author": "Greg Herlihy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greghe/react-native-particle-system/issues"
+  },
+  "homepage": "https://github.com/greghe/react-native-particle-system#readme"
+}

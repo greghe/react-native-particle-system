@@ -10,12 +10,12 @@ import React, {
   View,
   Image,
   TabBarIOS,
-  StyleSheet
+  StyleSheet,
+  Dimensions
 } from 'react-native';
 
-var ParticleView = require('ParticleView');
-var ParticleCell = require('ParticleCell');
-var Dimensions = require('Dimensions');
+var ParticleView = require('react-native-particle-system');
+var ParticleCell = require('react-native-particle-system');
 
 var starsParticleProps = {
   name : "untitled",
@@ -57,7 +57,7 @@ var fireParticleProps = {
 	emissionLatitude : 1.484, emissionLongitude : 0.0, emissionRange : 0.0,
 };
 
-class SampleApp extends React.Component {
+class ParticleDemo extends React.Component {
 
   constructor(props) {
     super(props);
@@ -119,4 +119,4 @@ class SampleApp extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('SampleApp', () => SampleApp);
+AppRegistry.registerComponent('ParticleDemo', () => ParticleDemo);

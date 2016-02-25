@@ -1,5 +1,6 @@
 /*
   @providesModule ParticleView
+  @flow
 */
 'use strict';
 
@@ -41,7 +42,7 @@ class ParticleView extends React.Component {
   }
 
   render() {
-    return (<GPHParticleView style={this.props.style} {...this.props}>{[this.props.children]}</GPHParticleView>);
+    return (<GPHParticleView {...this.props}>{[this.props.children]}</GPHParticleView>);
   }
 }
 ParticleView.defaultProps = {

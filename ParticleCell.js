@@ -5,7 +5,10 @@
 
 var React = require('react-native');
 var GPHParticleCell = React.NativeModules.GPHParticleCell;
-var ColorPropType = require('ColorPropType');
+
+var {
+  ColorPropType
+} = React;
 
 class ParticleCell extends React.Component {
 
@@ -70,7 +73,7 @@ class ParticleCell extends React.Component {
       lifetime /= 1000.0;
 
       return (
-          <GPHParticleCell props={{color:color, ...otherProps}}>{[this.props.children]}</GPHParticleCell>
+          <GPHParticleCell props={{color:color, lifetime: lifetime, ...otherProps}}>{[this.props.children]}</GPHParticleCell>
         );
     }
 }
