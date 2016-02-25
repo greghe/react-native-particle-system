@@ -2,7 +2,6 @@
   "name": "react-native-particle-system",
   "version": "0.8.0",
   "description": "A Particle System for React Native iOS apps",
-  "main": "ParticleCell.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

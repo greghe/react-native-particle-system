@@ -14,8 +14,8 @@ import React, {
   Dimensions
 } from 'react-native';
 
-var ParticleView = require('react-native-particle-system');
-var ParticleCell = require('react-native-particle-system');
+var ParticleView = require('react-native-particle-system/ParticleView');
+var ParticleCell = require('react-native-particle-system/ParticleCell');
 
 var starsParticleProps = {
   name : "untitled",
@@ -27,7 +27,7 @@ var starsParticleProps = {
 	redRange : 1.00,	greenRange : 1.00, blueRange : 1.00, alphaRange : 0.00,
 	redSpeed : 0.00, greenSpeed : 0.00, blueSpeed : 0.00, alphaSpeed : 0.00,
 
-	lifetime : 1000.00, lifetimeRange : 0.50,
+	lifetime : 1000, lifetimeRange : 0.50,
 	birthRate : 250,
 	velocity : 150.00, velocityRange : 25.00,
 	xAcceleration : 0.00, yAcceleration : 0.00, zAcceleration : 0.00,
@@ -86,9 +86,10 @@ class ParticleDemo extends React.Component {
               emitterMode={'surface'}
               emitterSize={{width:180, height:20}}
               emitterDepth={0} renderMode={"additive"} seed={2197194815}>
-              <ParticleCell {...fireParticleProps}>
+              {
+                <ParticleCell {...fireParticleProps}>
                 <Image source={{uri:"spark"}} style={{top:0, left:0, width:64, height:64}}/>
-              </ParticleCell>
+              </ParticleCell>}
             </ParticleView>
           </View>}
         </TabBarIOS.Item>

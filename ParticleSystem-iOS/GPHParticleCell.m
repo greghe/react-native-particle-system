@@ -26,14 +26,14 @@
 - (void)insertSubview:(UIView *)view atIndex:(NSInteger)index
 {
   NSAssert([view isKindOfClass:[UIImageView class]],
-            @"Only an Image may be a child of a ParticleCell");
-  
+             @"Only an Image may be a child of a ParticleCell");
+    
   UIImageView *imageView = (UIImageView*) view;
   
   [imageView addObserver:self forKeyPath:@"image"
                  options:NSKeyValueObservingOptionNew context:nil];
   self.observedObject = imageView;
-  // don't actually insert the imageview
+   // don't actually insert the imageview
 }
 
 // to avoid a lot of boilerplate code we'll just forward the set property calls
@@ -53,6 +53,11 @@
   NSAssert(signature != nil, @"unknown property set on GPHParticleCell: %@",
             NSStringFromSelector(aSelector));
   return signature;
+}
+
+- (void)setLifetime:(float)lifetime
+{
+    self.emitterCell.lifetime = lifetime/1000.0;
 }
 
 -(void)setEmitterSetupCompletion:(void (^)(CAEmitterCell *))emitterSetupCompletion

@@ -68,12 +68,12 @@ class ParticleCell extends React.Component {
     }
 
     render() {
-      var {color, lifetime, ...otherProps} = this.props;
+      var {color,
+        ...otherProps} = this.props;
       color = React.processColor(color);
-      lifetime /= 1000.0;
 
       return (
-          <GPHParticleCell props={{color:color, lifetime: lifetime, ...otherProps}}>{[this.props.children]}</GPHParticleCell>
+        <GPHParticleCell props={{color: color, ...otherProps}}/>
         );
     }
 }
