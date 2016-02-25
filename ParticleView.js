@@ -12,27 +12,26 @@ var {
 class ParticleView extends React.Component {
 
   static propTypes = {
+    emitterPosition:    React.PropTypes.shape({x:React.PropTypes.number, y:React.PropTypes.number}),
+    emitterZPosition:   React.PropTypes.number,
+    emitterShape:       React.PropTypes.oneOf(['point', 'line', 'rectangle', 'circle', 'cuboid', 'sphere']),
+    emitterSize:        React.PropTypes.shape({width:React.PropTypes.number, height:React.PropTypes.number}),
+    emitterMode:        React.PropTypes.oneOf(["points", 'outline', 'surface', 'volume']),
 
-    // this lifetime property is multiplied with the lifetime property of each ParticleCell
-    // to determine the cells's effective lifetie
-    emitterPosition: React.PropTypes.shape({x:React.PropTypes.number, y:React.PropTypes.number}),
-    emitterZPosition : React.PropTypes.number,
-    emitterShape: React.PropTypes.oneOf(['point', 'line', 'rectangle', 'circle', 'cuboid', 'sphere']),
-    emitterSize : React.PropTypes.shape({width:React.PropTypes.number, height:React.PropTypes.number}),
-    emitterMode:  React.PropTypes.oneOf(["points", 'outline', 'surface', 'volume']),
     // specifies the order the particles are rendered on the screen
-    renderMode : React.PropTypes.oneOf(["unordered", "oldestFirst", "oldestLast", "backToFront", "additive"]),
-    emitterDepth:  React.PropTypes.number,
-    preservesDepth: React.PropTypes.bool,
+    renderMode:         React.PropTypes.oneOf(["unordered", "oldestFirst", "oldestLast", "backToFront", "additive"]),
+    emitterDepth:       React.PropTypes.number,
+    preservesDepth:     React.PropTypes.bool,
+
     // the next five properties are multipliers of the ParticleCell's property with the same name
     // so a scale property of "2" would double the scale of all the enclosed ParticleCells
-    birthRate: React.PropTypes.number,
-    lifetime: React.PropTypes.number,
-    velocity : React.PropTypes.number,
-    scale : React.PropTypes.number,
-    spin : React.PropTypes.number,
+    birthRate:          React.PropTypes.number,
+    lifetime:           React.PropTypes.number,
+    velocity:           React.PropTypes.number,
+    scale:              React.PropTypes.number,
+    spin:               React.PropTypes.number,
 
-    seed : React.PropTypes.number,
+    seed:               React.PropTypes.number,
     ...View.propTypes
   };
 
@@ -45,12 +44,13 @@ class ParticleView extends React.Component {
       <GPHParticleView {...this.props}></GPHParticleView>);
   }
 }
+
 ParticleView.defaultProps = {
-  birthRate:1,
+  birthRate: 1,
   lifetime: 1,
-  emitterPosition:{x:0, y:0},
-  emitterZPosition:0,
-  emitterShape:'point',
+  emitterPosition: {x:0, y:0},
+  emitterZPosition: 0,
+  emitterShape: 'point',
   emitterSize: {width:0, height:0},
   emitterMode: 'volume',
   renderMode: 'unordered',
