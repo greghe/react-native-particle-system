@@ -1,6 +1,8 @@
 #import "GPHParticleCell.h"
 #import "RCTAssert.h"
 
+const CGFloat kMillisecondsPerSecond = 1000.0;
+
 @interface GPHParticleCell ()
 
 @property (nonatomic) UIImageView *observedObject;
@@ -13,7 +15,6 @@
 {
   self = [super initWithFrame:frame];
   _emitterCell = [CAEmitterCell emitterCell];
-  _emitterCell.contents = (__bridge id)[UIImage imageNamed:@"mysprite.png"].CGImage;
   return self;
 }
 
@@ -57,7 +58,22 @@
 
 - (void)setLifetime:(float)lifetime
 {
-    self.emitterCell.lifetime = lifetime/1000.0;
+    self.emitterCell.lifetime = lifetime/kMillisecondsPerSecond;
+}
+
+- (void)setDuration:(double)duration
+{
+    self.emitterCell.duration = duration/kMillisecondsPerSecond;
+}
+
+- (void)setTimeOffset:(double)timeOffset
+{
+    self.emitterCell.timeOffset = timeOffset/kMillisecondsPerSecond;
+}
+
+- (void)setRepeatDuration:(double)repeatDuration
+{
+    self.emitterCell.repeatDuration = repeatDuration/kMillisecondsPerSecond;
 }
 
 -(void)setEmitterSetupCompletion:(void (^)(CAEmitterCell *))emitterSetupCompletion

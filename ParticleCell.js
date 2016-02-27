@@ -61,6 +61,24 @@ class ParticleCell extends React.Component {
       emissionLatitude       : React.PropTypes.number,
       emissionLongitude      : React.PropTypes.number,
       emissionRange          : React.PropTypes.number,
+
+      beginTime,             : React.PropTypes.number,
+      // basic duration - in milliseconds
+      duration               : React.PropTypes.number,
+
+      // The rate of the layer. Used to scale parent time to local cell time/
+      speed                  : React.PropTypes.number,
+
+      // Additional offset in active local time. (ms)
+      timeOffset             : React.PropTypes.number,
+
+      // The repeat count of the cell. May be fractional.
+      repeatCount,           : React.PropTypes.number,
+      repeatDuration         : React.PropTypes.number,
+      autoreverses           : React.PropTypes.bool,
+
+      // Defines how the timed cell behaves outside its active duration.
+      fillMode               : React.PropTypes.oneOf(['backwards', 'forwards', 'both', 'removed'])
     };
 
     constructor(props) {
@@ -123,6 +141,18 @@ ParticleCell.defaultProps = {
     magnificationFilter    : "linear",
     minificationFilter     : "linear",
     minificationFilterBias : 0,
+
+    beginTime,             : 0,
+    duration               : 0,
+    speed                  : 1,
+
+    timeOffset             : 0,
+
+    repeatCount,           : 0,
+    repeatDuration         : 0,
+    autoreverses           : false,
+
+    fillMode               : 'removed',
 };
 
 //module.exports = ParticleCell;

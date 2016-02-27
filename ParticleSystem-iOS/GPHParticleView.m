@@ -126,4 +126,27 @@
   [super insertSubview:view atIndex:index];
 }
 
+- (void)addSubview:(UIView *)view
+{
+    [self insertSubview:view atIndex:[self.subviews count]];
+}
+
+- (void)insertSubview:(UIView *)view aboveSubview:(UIView *)siblingSubview
+{
+    NSInteger index = [self.subviews indexOfObject:siblingSubview];
+    
+    NSAssert(index != NSNotFound, @"Sibling subview not found");
+    
+    [self insertSubview:view atIndex:index+1];
+}
+
+- (void)insertSubview:(UIView *)view belowSubview:(UIView *)siblingSubview
+{
+    NSInteger index = [self.subviews indexOfObject:siblingSubview];
+    
+    NSAssert(index != NSNotFound, @"Sibling subview not found");
+    
+    [self insertSubview:view atIndex:index];
+}
+
 @end

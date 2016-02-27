@@ -57,4 +57,14 @@ RCT_EXPORT_VIEW_PROPERTY(magnificationFilter, NSString*);
 RCT_EXPORT_VIEW_PROPERTY(minificationFilter, NSString*);
 RCT_EXPORT_VIEW_PROPERTY(minificationFilterBias, float);
 
+// from CAMediaTiming
+RCT_EXPORT_VIEW_PROPERTY(beginTime, double);
+RCT_EXPORT_VIEW_PROPERTY(duration, double);
+RCT_EXPORT_VIEW_PROPERTY(speed, float);
+RCT_EXPORT_VIEW_PROPERTY(timeOffset, double);
+RCT_EXPORT_VIEW_PROPERTY(repeatCount, float);
+RCT_EXPORT_VIEW_PROPERTY(repeatDuration, double);
+RCT_EXPORT_VIEW_PROPERTY(autoreverses, BOOL);
+RCT_EXPORT_VIEW_PROPERTY(fillMode, NSString*);
+
 @end
