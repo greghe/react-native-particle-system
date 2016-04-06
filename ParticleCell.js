@@ -62,7 +62,7 @@ class ParticleCell extends React.Component {
       emissionLongitude      : React.PropTypes.number,
       emissionRange          : React.PropTypes.number,
 
-      beginTime,             : React.PropTypes.number,
+      beginTime              : React.PropTypes.number,
       // basic duration - in milliseconds
       duration               : React.PropTypes.number,
 
@@ -73,7 +73,7 @@ class ParticleCell extends React.Component {
       timeOffset             : React.PropTypes.number,
 
       // The repeat count of the cell. May be fractional.
-      repeatCount,           : React.PropTypes.number,
+      repeatCount            : React.PropTypes.number,
       repeatDuration         : React.PropTypes.number,
       autoreverses           : React.PropTypes.bool,
 
@@ -142,13 +142,13 @@ ParticleCell.defaultProps = {
     minificationFilter     : "linear",
     minificationFilterBias : 0,
 
-    beginTime,             : 0,
+    beginTime              : 0,
     duration               : 0,
     speed                  : 1,
 
     timeOffset             : 0,
 
-    repeatCount,           : 0,
+    repeatCount            : 0,
     repeatDuration         : 0,
     autoreverses           : false,
 
