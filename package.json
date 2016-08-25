@@ -1,6 +1,6 @@
 {
   "name": "react-native-particle-system",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "A Particle System for React Native iOS apps",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
