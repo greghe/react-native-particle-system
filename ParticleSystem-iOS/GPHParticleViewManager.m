@@ -13,6 +13,9 @@ RCT_EXPORT_MODULE();
 RCT_EXPORT_VIEW_PROPERTY(birthRate, float);
 RCT_EXPORT_VIEW_PROPERTY(lifetime, float);
 
+RCT_EXPORT_VIEW_PROPERTY(beginTimeOffset, float);
+RCT_EXPORT_VIEW_PROPERTY(useCurrentMediaTime, BOOL);
+
 RCT_EXPORT_VIEW_PROPERTY(emitterPosition, CGPoint);
 RCT_EXPORT_VIEW_PROPERTY(emitterZPosition, CGFloat);
 RCT_EXPORT_VIEW_PROPERTY(emitterSize, CGSize);

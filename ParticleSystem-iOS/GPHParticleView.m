@@ -5,6 +5,8 @@
 
 @property (nonatomic, readonly) CAEmitterLayer *emitterLayer;
 @property (nonatomic) NSArray<CAEmitterCell*> *emitterCells;
+@property (nonatomic) float emitterBeginTimeOffset;
+@property (nonatomic) BOOL emitterUseCurrentMediaTime;
 
 @end
 
@@ -12,6 +14,7 @@
 
 @dynamic velocity, scale, lifetime, birthRate, spin, seed, emitterZPosition, preservesDepth;
 @dynamic emitterShape, emitterDepth, emitterMode, renderMode, emitterPosition, emitterSize;
+@dynamic beginTimeOffset, useCurrentMediaTime;
 
 +(Class)layerClass
 {
@@ -26,6 +29,8 @@
   self.layer.needsDisplayOnBoundsChange = YES;
   self.clipsToBounds = NO;
   self.emitterCells = @[];
+  self.emitterBeginTimeOffset = 0;
+  self.emitterUseCurrentMediaTime = false;
   return self;
 }
 
@@ -107,6 +112,20 @@
 -(void)setSeed:(uint32_t)seed
 {
   self.emitterLayer.seed = seed;
+}
+
+-(void)setBeginTimeOffset:(float)beginTimeOffset
+{
+  self.emitterBeginTimeOffset = beginTimeOffset;
+  float currentMediaTime = self.emitterUseCurrentMediaTime ? CACurrentMediaTime() : 0;
+  self.emitterLayer.beginTime = currentMediaTime + beginTimeOffset;
+}
+
+-(void)setUseCurrentMediaTime:(BOOL)useCurrentMediaTime
+{
+  self.emitterUseCurrentMediaTime = useCurrentMediaTime;
+  float currentMediaTime = useCurrentMediaTime ? CACurrentMediaTime() : 0;
+  self.emitterLayer.beginTime = currentMediaTime + self.emitterBeginTimeOffset;
 }
 
 - (void)insertSubview:(UIView *)view atIndex:(NSInteger)index
