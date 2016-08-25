@@ -2,6 +2,19 @@
 ###Add particle effects to your React Native app
 
 ![](particle.gif)
+##Add it to your project
+###iOS
+* Run `npm install react-native-particle-system --save`
+
+Then:
+
+1. Open your project in XCode, select the folder you want project file in, right click it and click `Add Files to "Your Folder Name"`.  Look under `node_modules/react-native-particle-system` and add `GPHParticleSystem.xcodeproj`.
+2. Add `GPHParticleSystem` to `Build Phases -> Target Dependencies`.
+3. Add `libGPHParticleSystem.a` to `Build Phases -> Link Binary With Libraries`.
+
+Then:
+* Whenever you want to use it within React code now you can: `import ParticleView from 'react-native-particle-system/ParticleView`
+
 ##Usage
 A particle system consist of one ParticleView component enclosing one or more ParticleCells. Each ParticleCell in turn encloses an Image component that is used to render the particle:
 
