@@ -10,7 +10,7 @@
 
 @property (nonatomic) float lifetime;
 
-@property (nonatomic) float beginTimeOffset;
+@property (nonatomic) CFTimeInterval beginTimeOffset;
 @property (nonatomic) BOOL useCurrentMediaTime;
 
 @property (nonatomic) CGPoint emitterPosition;
