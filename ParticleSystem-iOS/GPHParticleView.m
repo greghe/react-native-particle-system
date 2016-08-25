@@ -109,6 +109,20 @@
   self.emitterLayer.seed = seed;
 }
 
+-(void)setBeginTimeOffset:(CFTimeInterval)beginTimeOffset
+{
+  _beginTimeOffset = (beginTimeOffset / kMillisecondsPerSecond);
+  CFTimeInterval currentMediaTime = _useCurrentMediaTime ? CACurrentMediaTime() : 0;
+  self.emitterLayer.beginTime = currentMediaTime + (beginTimeOffset / kMillisecondsPerSecond);
+}
+
+-(void)setUseCurrentMediaTime:(BOOL)useCurrentMediaTime
+{
+  _useCurrentMediaTime = useCurrentMediaTime;
+  CFTimeInterval currentMediaTime = useCurrentMediaTime ? CACurrentMediaTime() : 0;
+  self.emitterLayer.beginTime = currentMediaTime + _beginTimeOffset;
+}
+
 - (void)insertSubview:(UIView *)view atIndex:(NSInteger)index
 {
   if ([view isKindOfClass:[GPHParticleCell class]]) {

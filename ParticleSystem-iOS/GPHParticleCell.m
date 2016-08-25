@@ -1,8 +1,6 @@
 #import "GPHParticleCell.h"
 #import "RCTAssert.h"
 
-const CGFloat kMillisecondsPerSecond = 1000.0;
-
 @interface GPHParticleCell ()
 
 @property (nonatomic) UIImageView *observedObject;
