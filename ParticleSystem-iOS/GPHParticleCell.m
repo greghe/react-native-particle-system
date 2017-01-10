@@ -22,17 +22,33 @@
   _observedObject = nil;
 }
 
-- (void)insertSubview:(UIView *)view atIndex:(NSInteger)index
+- (void)addSubview:(UIView *)view
 {
   NSAssert([view isKindOfClass:[UIImageView class]],
-             @"Only an Image may be a child of a ParticleCell");
-    
+           @"Only an Image may be a child of a ParticleCell");
+  
   UIImageView *imageView = (UIImageView*) view;
   
   [imageView addObserver:self forKeyPath:@"image"
                  options:NSKeyValueObservingOptionNew context:nil];
   self.observedObject = imageView;
-   // don't actually insert the imageview
+  
+  [self checkForCellImageSetup:imageView];
+}
+
+- (void)insertSubview:(UIView *)view atIndex:(NSInteger)index
+{
+  NSAssert([view isKindOfClass:[UIImageView class]],
+           @"Only an Image may be a child of a ParticleCell");
+  
+  UIImageView *imageView = (UIImageView*) view;
+  
+  [imageView addObserver:self forKeyPath:@"image"
+                 options:NSKeyValueObservingOptionNew context:nil];
+  self.observedObject = imageView;
+  
+  [self checkForCellImageSetup:imageView];
+  // don't actually insert the imageview
 }
 
 // to avoid a lot of boilerplate code we'll just forward the set property calls
@@ -50,28 +66,28 @@
   NSMethodSignature *signature = [self.emitterCell methodSignatureForSelector:aSelector];
   
   NSAssert(signature != nil, @"unknown property set on GPHParticleCell: %@",
-            NSStringFromSelector(aSelector));
+           NSStringFromSelector(aSelector));
   return signature;
 }
 
 - (void)setLifetime:(float)lifetime
 {
-    self.emitterCell.lifetime = lifetime/kMillisecondsPerSecond;
+  self.emitterCell.lifetime = lifetime/kMillisecondsPerSecond;
 }
 
 - (void)setDuration:(double)duration
 {
-    self.emitterCell.duration = duration/kMillisecondsPerSecond;
+  self.emitterCell.duration = duration/kMillisecondsPerSecond;
 }
 
 - (void)setTimeOffset:(double)timeOffset
 {
-    self.emitterCell.timeOffset = timeOffset/kMillisecondsPerSecond;
+  self.emitterCell.timeOffset = timeOffset/kMillisecondsPerSecond;
 }
 
 - (void)setRepeatDuration:(double)repeatDuration
 {
-    self.emitterCell.repeatDuration = repeatDuration/kMillisecondsPerSecond;
+  self.emitterCell.repeatDuration = repeatDuration/kMillisecondsPerSecond;
 }
 
 -(void)setEmitterSetupCompletion:(void (^)(CAEmitterCell *))emitterSetupCompletion
@@ -90,7 +106,11 @@
                        context:(void *)context
 {
   UIImageView *imageView = (UIImageView*) object;
-  
+  [self checkForCellImageSetup:imageView];
+}
+
+- (void)checkForCellImageSetup:(UIImageView *)imageView
+{
   if (imageView.image) {
     self.emitterCell.contents = (__bridge id) imageView.image.CGImage;
     if (self.emitterSetupCompletion) {
