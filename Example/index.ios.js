@@ -4,7 +4,7 @@
  */
 'use strict';
 
-import React, {
+import ReactNative, {
   AppRegistry,
   Text,
   View,
@@ -13,6 +13,8 @@ import React, {
   StyleSheet,
   Dimensions
 } from 'react-native';
+
+import React from 'react';
 
 var ParticleView = require('react-native-particle-system/ParticleView');
 var ParticleCell = require('react-native-particle-system/ParticleCell');

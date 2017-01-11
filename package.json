@@ -19,7 +19,8 @@
     "Games"
   ],
   "peerDependencies": {
-    "react-native": ">=0.18.0"
+    "react-native": "^0.33.0",
+    "react": "15.3.1"
   },
   "author": "Greg Herlihy",
   "license": "MIT",
