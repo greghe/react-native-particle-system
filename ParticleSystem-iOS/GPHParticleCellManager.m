@@ -1,5 +1,5 @@
 #import "GPHParticleCellManager.h"
-#import "RCTConvert.h"
+#import <React/RCTConvert.h>
 
 #import "GPHParticleCell.h"
 
