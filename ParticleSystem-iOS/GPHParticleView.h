@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import "RCTView.h"
+#import <React/RCTView.h>
 
 @interface GPHParticleView : RCTView
 

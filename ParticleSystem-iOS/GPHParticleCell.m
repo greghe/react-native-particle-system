@@ -1,5 +1,5 @@
 #import "GPHParticleCell.h"
-#import "RCTAssert.h"
+#import <React/RCTAssert.h>
 
 @interface GPHParticleCell ()
 
