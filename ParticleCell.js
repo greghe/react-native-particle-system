@@ -8,7 +8,7 @@ var React = require('react');
 var PropTypes = require('prop-types');
 
 var ReactNative = require('react-native');
-var GPHParticleCell = React.NativeModules.GPHParticleCell;
+var GPHParticleCell = ReactNative.NativeModules.GPHParticleCell;
 
 
 var {

@@ -6,6 +6,7 @@
 var React = require('react');
 var ReactNative = require('react-native');
 var PropTypes = require('prop-types');
+var GPHParticleView = ReactNative.requireNativeComponent('GPHParticleView', null);
 
 var {
   View
@@ -69,5 +70,4 @@ ParticleView.defaultProps = {
   seed: 0
 };
 
-var GPHParticleView = ReactNative.requireNativeComponent('GPHParticleView', null);
 module.exports = ParticleView;
