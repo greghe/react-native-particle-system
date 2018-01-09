@@ -19,12 +19,15 @@
     "Games"
   ],
   "peerDependencies": {
-    "react-native": ">=0.18.0"
+    "react-native": ">=0.45.0"
   },
   "author": "Greg Herlihy",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/greghe/react-native-particle-system/issues"
   },
-  "homepage": "https://github.com/greghe/react-native-particle-system#readme"
+  "homepage": "https://github.com/greghe/react-native-particle-system#readme",
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  }
 }

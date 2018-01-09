@@ -5,6 +5,7 @@
 
 var React = require('react-native');
 var GPHParticleCell = React.NativeModules.GPHParticleCell;
+var PropTypes = require('prop-types');
 
 var {
   ColorPropType
@@ -13,72 +14,72 @@ var {
 class ParticleCell extends React.Component {
 
     static propTypes = {
-      name                   : React.PropTypes.string,
+      name                   : PropTypes.string,
 
-      enabled                : React.PropTypes.bool,
+      enabled                : PropTypes.bool,
 
       // a unit rectangle specifying the portion of the particle image to render
-      contentsRect           : React.PropTypes.shape({ x: React.PropTypes.number, y: React.PropTypes.number, width: React.PropTypes.number, height: React.PropTypes.number}),
+      contentsRect           : PropTypes.shape({ x: PropTypes.number, y: PropTypes.number, width: PropTypes.number, height: PropTypes.number}),
 
-      magnificationFilter    : React.PropTypes.oneOf(["linear", "nearest"]),
-      minificationFilter     : React.PropTypes.oneOf(["linear", "nearest"]),
-      minificationFilterBias : React.PropTypes.number,
+      magnificationFilter    : PropTypes.oneOf(["linear", "nearest"]),
+      minificationFilter     : PropTypes.oneOf(["linear", "nearest"]),
+      minificationFilterBias : PropTypes.number,
 
-      scale                  : React.PropTypes.number,
-      scaleRange             : React.PropTypes.number,
-      scaleSpeed             : React.PropTypes.number,
+      scale                  : PropTypes.number,
+      scaleRange             : PropTypes.number,
+      scaleSpeed             : PropTypes.number,
 
       color                  : ColorPropType,
-      redRange               : React.PropTypes.number,
-      greenRange             : React.PropTypes.number,
-      blueRange              : React.PropTypes.number,
-      alphaRange             : React.PropTypes.number,
+      redRange               : PropTypes.number,
+      greenRange             : PropTypes.number,
+      blueRange              : PropTypes.number,
+      alphaRange             : PropTypes.number,
 
       // the rate at which the individaul color components can change
-      redSpeed               : React.PropTypes.number,
-      greenSpeed             : React.PropTypes.number,
-      blueSpeed              : React.PropTypes.number,
-      alphaSpeed             : React.PropTypes.number,
+      redSpeed               : PropTypes.number,
+      greenSpeed             : PropTypes.number,
+      blueSpeed              : PropTypes.number,
+      alphaSpeed             : PropTypes.number,
 
       // how long a particle exists in the system - specified in milliseconds
-      lifetime               : React.PropTypes.number,
-      lifetimeRange          : React.PropTypes.number,
+      lifetime               : PropTypes.number,
+      lifetimeRange          : PropTypes.number,
 
       // how many particles are created each second
-      birthRate              : React.PropTypes.number,
+      birthRate              : PropTypes.number,
 
-      velocity               : React.PropTypes.number,
-      velocityRange          : React.PropTypes.number,
+      velocity               : PropTypes.number,
+      velocityRange          : PropTypes.number,
 
-      xAcceleration          : React.PropTypes.number,
-      yAcceleration          : React.PropTypes.number,
-      zAcceleration          : React.PropTypes.number,
+      xAcceleration          : PropTypes.number,
+      yAcceleration          : PropTypes.number,
+      zAcceleration          : PropTypes.number,
 
-      spin                   : React.PropTypes.number,
-      spinRange              : React.PropTypes.number,
+      spin                   : PropTypes.number,
+      spinRange              : PropTypes.number,
 
       // expressed in radians - specifies the inital direction of a particle
-      emissionLatitude       : React.PropTypes.number,
-      emissionLongitude      : React.PropTypes.number,
-      emissionRange          : React.PropTypes.number,
+      emissionLatitude       : PropTypes.number,
+      emissionLongitude      : PropTypes.number,
+      emissionRange          : PropTypes.number,
 
-      beginTime              : React.PropTypes.number,
+      beginTime              : PropTypes.number,
       // basic duration - in milliseconds
-      duration               : React.PropTypes.number,
+      duration               : PropTypes.number,
 
       // The rate of the layer. Used to scale parent time to local cell time/
-      speed                  : React.PropTypes.number,
+      speed                  : PropTypes.number,
 
       // Additional offset in active local time. (ms)
-      timeOffset             : React.PropTypes.number,
+      timeOffset             : PropTypes.number,
 
       // The repeat count of the cell. May be fractional.
-      repeatCount            : React.PropTypes.number,
-      repeatDuration         : React.PropTypes.number,
-      autoreverses           : React.PropTypes.bool,
+      repeatCount            : PropTypes.number,
+      repeatDuration         : PropTypes.number,
+      autoreverses           : PropTypes.bool,
 
       // Defines how the timed cell behaves outside its active duration.
-      fillMode               : React.PropTypes.oneOf(['backwards', 'forwards', 'both', 'removed'])
+      fillMode               : PropTypes.oneOf(['backwards', 'forwards', 'both', 'removed'])
     };
 
     constructor(props) {

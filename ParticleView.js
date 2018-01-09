@@ -4,6 +4,7 @@
 'use strict';
 
 var React = require('react-native');
+var PropTypes = require('prop-types');
 
 var {
   View
@@ -12,31 +13,31 @@ var {
 class ParticleView extends React.Component {
 
   static propTypes = {
-    emitterPosition:      React.PropTypes.shape({x:React.PropTypes.number, y:React.PropTypes.number}),
-    emitterZPosition:     React.PropTypes.number,
-    emitterShape:         React.PropTypes.oneOf(['point', 'line', 'rectangle', 'circle', 'cuboid', 'sphere']),
-    emitterSize:          React.PropTypes.shape({width:React.PropTypes.number, height:React.PropTypes.number}),
-    emitterMode:          React.PropTypes.oneOf(["points", 'outline', 'surface', 'volume']),
+    emitterPosition:      PropTypes.shape({x:PropTypes.number, y:PropTypes.number}),
+    emitterZPosition:     PropTypes.number,
+    emitterShape:         PropTypes.oneOf(['point', 'line', 'rectangle', 'circle', 'cuboid', 'sphere']),
+    emitterSize:          PropTypes.shape({width:PropTypes.number, height:PropTypes.number}),
+    emitterMode:          PropTypes.oneOf(["points", 'outline', 'surface', 'volume']),
 
     // specifies the order the particles are rendered on the screen
-    renderMode:           React.PropTypes.oneOf(["unordered", "oldestFirst", "oldestLast", "backToFront", "additive"]),
-    emitterDepth:         React.PropTypes.number,
-    preservesDepth:       React.PropTypes.bool,
+    renderMode:           PropTypes.oneOf(["unordered", "oldestFirst", "oldestLast", "backToFront", "additive"]),
+    emitterDepth:         PropTypes.number,
+    preservesDepth:       PropTypes.bool,
 
     // specifies the begin time of the particle emitter - specified in milliseconds
-    beginTimeOffset:      React.PropTypes.number,
+    beginTimeOffset:      PropTypes.number,
     // specifies whether the begin time should use the current media time
-    useCurrentMediaTime:  React.PropTypes.bool,
+    useCurrentMediaTime:  PropTypes.bool,
 
     // the next five properties are multipliers of the ParticleCell's property with the same name
     // so a scale property of "2" would double the scale of all the enclosed ParticleCells
-    birthRate:            React.PropTypes.number,
-    lifetime:             React.PropTypes.number,
-    velocity:             React.PropTypes.number,
-    scale:                React.PropTypes.number,
-    spin:                 React.PropTypes.number,
+    birthRate:            PropTypes.number,
+    lifetime:             PropTypes.number,
+    velocity:             PropTypes.number,
+    scale:                PropTypes.number,
+    spin:                 PropTypes.number,
 
-    seed:                 React.PropTypes.number,
+    seed:                 PropTypes.number,
     ...View.propTypes
   };
 
