@@ -3,9 +3,13 @@
 */
 'use strict';
 
-var React = require('react-native');
-var GPHParticleCell = React.NativeModules.GPHParticleCell;
+
+var React = require('react');
 var PropTypes = require('prop-types');
+
+var ReactNative = require('react-native');
+var GPHParticleCell = React.NativeModules.GPHParticleCell;
+
 
 var {
   ColorPropType
@@ -89,7 +93,7 @@ class ParticleCell extends React.Component {
     render() {
       var {color,
         ...otherProps} = this.props;
-      color = React.processColor(color);
+      color = ReactNative.processColor(color);
 
       return (
         <GPHParticleCell props={{color: color, ...otherProps}}/>
@@ -158,4 +162,4 @@ ParticleCell.defaultProps = {
 
 //module.exports = ParticleCell;
 
-module.exports = React.requireNativeComponent('GPHParticleCell', null);
+module.exports = ReactNative.requireNativeComponent('GPHParticleCell', null);

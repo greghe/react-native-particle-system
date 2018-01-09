@@ -3,12 +3,13 @@
 */
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var ReactNative = require('react-native');
 var PropTypes = require('prop-types');
 
 var {
   View
-} = React;
+} = ReactNative;
 
 class ParticleView extends React.Component {
 
@@ -68,5 +69,5 @@ ParticleView.defaultProps = {
   seed: 0
 };
 
-var GPHParticleView = React.requireNativeComponent('GPHParticleView', null);
+var GPHParticleView = ReactNative.requireNativeComponent('GPHParticleView', null);
 module.exports = ParticleView;
