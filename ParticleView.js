@@ -9,7 +9,8 @@ var PropTypes = require('prop-types');
 var GPHParticleView = ReactNative.requireNativeComponent('GPHParticleView', null);
 
 var {
-  View
+  View,
+  ViewPropTypes,
 } = ReactNative;
 
 class ParticleView extends React.Component {
@@ -40,7 +41,7 @@ class ParticleView extends React.Component {
     spin:                 PropTypes.number,
 
     seed:                 PropTypes.number,
-    ...View.propTypes
+    ...ViewPropTypes
   };
 
   constructor(props) {
