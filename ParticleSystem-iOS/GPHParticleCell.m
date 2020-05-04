@@ -112,9 +112,9 @@ static NSString* kImageKey = @"defaultImage";
   [self checkForCellImageSetup:imageView];
 }
 
-- (void)checkForCellImageSetup:(UIImageView *)imageView
+- (void)checkForCellImageSetup:(RCTImageView *)imageView
 {
-  if (imageView.image) {
+  if (imageView.defaultImage) {
     self.emitterCell.contents = (__bridge id) imageView.defaultImage.CGImage;
     if (self.emitterSetupCompletion) {
       self.emitterSetupCompletion(self.emitterCell);
