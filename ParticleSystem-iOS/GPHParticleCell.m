@@ -1,9 +1,12 @@
 #import "GPHParticleCell.h"
 #import <React/RCTAssert.h>
+#import <React/RCTImageView.h>
+
+static NSString* kImageKey = @"defaultImage";
 
 @interface GPHParticleCell ()
 
-@property (nonatomic) UIImageView *observedObject;
+@property (nonatomic) RCTImageView *observedObject;
 
 @end
 
@@ -18,18 +21,18 @@
 
 - (void)dealloc
 {
-  [_observedObject removeObserver:self forKeyPath:@"image"];
+  [_observedObject removeObserver:self forKeyPath:kImageKey];
   _observedObject = nil;
 }
 
 - (void)addSubview:(UIView *)view
 {
-  NSAssert([view isKindOfClass:[UIImageView class]],
-           @"Only an Image may be a child of a ParticleCell");
+  NSAssert([view isKindOfClass:[RCTImageView class]],
+           @"Only an RCTImageView may be a child of a ParticleCell");
   
-  UIImageView *imageView = (UIImageView*) view;
+  RCTImageView *imageView = (RCTImageView*) view;
   
-  [imageView addObserver:self forKeyPath:@"image"
+  [imageView addObserver:self forKeyPath:kImageKey
                  options:NSKeyValueObservingOptionNew context:nil];
   self.observedObject = imageView;
   
@@ -38,12 +41,12 @@
 
 - (void)insertSubview:(UIView *)view atIndex:(NSInteger)index
 {
-  NSAssert([view isKindOfClass:[UIImageView class]],
+  NSAssert([view isKindOfClass:[RCTImageView class]],
            @"Only an Image may be a child of a ParticleCell");
   
-  UIImageView *imageView = (UIImageView*) view;
+  RCTImageView *imageView = (RCTImageView*) view;
   
-  [imageView addObserver:self forKeyPath:@"image"
+  [imageView addObserver:self forKeyPath:kImageKey
                  options:NSKeyValueObservingOptionNew context:nil];
   self.observedObject = imageView;
   
@@ -105,18 +108,18 @@
                         change:(NSDictionary<NSString *,id> *)change
                        context:(void *)context
 {
-  UIImageView *imageView = (UIImageView*) object;
+  RCTImageView *imageView = (RCTImageView*) object;
   [self checkForCellImageSetup:imageView];
 }
 
 - (void)checkForCellImageSetup:(UIImageView *)imageView
 {
   if (imageView.image) {
-    self.emitterCell.contents = (__bridge id) imageView.image.CGImage;
+    self.emitterCell.contents = (__bridge id) imageView.defaultImage.CGImage;
     if (self.emitterSetupCompletion) {
       self.emitterSetupCompletion(self.emitterCell);
     }
-    [self.observedObject removeObserver:self forKeyPath:@"image"];
+    [self.observedObject removeObserver:self forKeyPath:kImageKey];
     self.observedObject = nil;
   }
 }
